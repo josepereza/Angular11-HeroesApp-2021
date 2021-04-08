@@ -1,0 +1,23 @@
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav #sidenav mode="side" >
+        <mat-nav-list (click)="sidenav.toggle()">
+            <h3>Menu</h3>
+            <a mat-list-item mat-list-icon  routerLink="listado"><mat-icon >list</mat-icon> Listado </a>
+            <a mat-list-item routerLink="agregar"><mat-icon>add</mat-icon>Agregar </a>
+            <a mat-list-item routerLink="buscar"><mat-icon>search</mat-icon>Buscar</a>
+           </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+        <mat-toolbar>   
+               <button mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon>
+               </button>
+
+            <span style="margin-left: 50px;">HeroesApp</span>
+          </mat-toolbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
