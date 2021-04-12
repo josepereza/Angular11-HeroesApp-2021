@@ -17,4 +17,8 @@ private baseUrl:string=environment.baseUrl
   getHeroe(id:string | null){
     return this.http.get<Heroe>(`${this.baseUrl}/heroes/${id}`)
   }
+  saveHeroe(heroe:Heroe):Observable<Heroe>{
+    console.log('servicio ', heroe)
+    return this.http.post<Heroe>(`${this.baseUrl}/heroes`,heroe)
+  }
 }

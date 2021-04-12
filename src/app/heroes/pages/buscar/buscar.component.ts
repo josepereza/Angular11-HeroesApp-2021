@@ -29,7 +29,6 @@ export class BuscarComponent implements OnInit {
   private _filter(value: string): Heroe[] {
     const filterValue = value.toLowerCase();
     
-     const pato=this.options.filter((option) => option.superhero.toLowerCase().includes(filterValue))
    
      return this.options.filter((option:Heroe) => option.superhero.toLowerCase().includes(filterValue))
 
