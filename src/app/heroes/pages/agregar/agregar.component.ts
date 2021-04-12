@@ -31,6 +31,7 @@ alt_img:new FormControl('')
   ngOnInit(): void {
   }
 guardar(){
+  console.log(this.heroeForm.get('alt_img')?.value)
   console.log(this.heroeForm.value)
 this.hs.saveHeroe(this.heroeForm.value).subscribe(dato=>{console.log(dato)})
 }

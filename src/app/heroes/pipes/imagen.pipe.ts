@@ -9,7 +9,7 @@ imagen:string=''
   transform(heroe:Heroe): unknown {
 if(heroe.id){
   this.imagen=`assets/heroes/${heroe.id}.jpg` 
-
+   if(heroe.alt_img){return heroe.alt_img}
 }else {this.imagen=`assets/no-image.png` } 
 
 return this.imagen;
