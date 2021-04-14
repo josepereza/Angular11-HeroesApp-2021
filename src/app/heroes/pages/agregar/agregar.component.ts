@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { Heroe } from '../../interfaces/heroe';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HeroesService } from '../../services/heroes.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -26,10 +27,21 @@ publisher: new FormControl('DC Comics'),
 first_appearance: new FormControl(''),
 alt_img:new FormControl('')
   })
-  constructor(private hs:HeroesService) { }
+  constructor(private hs:HeroesService , private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
+    const id = this.route.snapshot.paramMap.get('id');
+    this.hs.getHeroe(id).subscribe((dato)=>{console.log('mi dato mio ',dato); this.heroe=dato;
+   this.heroeForm.setValue({
+     superhero:this.heroe.superhero,
+     alter_ego:'',
+     characters:'',
+     publisher:'',
+     first_appearance:'',
+     alt_img:''
+   })
+  
+  })}
 guardar(){
   console.log(this.heroeForm.get('alt_img')?.value)
   console.log(this.heroeForm.value)
