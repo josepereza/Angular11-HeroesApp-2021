@@ -21,4 +21,13 @@ private baseUrl:string=environment.baseUrl
     console.log('servicio ', heroe)
     return this.http.post<Heroe>(`${this.baseUrl}/heroes`,heroe)
   }
+
+  actualizarHeroe(heroe:Heroe){
+    console.log('mi id', heroe)
+    return this.http.put<Heroe>(`${this.baseUrl}/heroes/${heroe.id}`, heroe)
+  }
+  eliminarHeroe(id:string | undefined){
+    console.log(' borrar ', id)
+    return this.http.delete<Heroe>(`${this.baseUrl}/heroes/${id}`)
+  }
 }
